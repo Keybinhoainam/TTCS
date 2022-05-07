@@ -14,6 +14,4 @@ public interface CategoryReposity extends JpaRepository<Category, Long>{
 	@Query("select c from Category c where c.name like %?1%")
 	List<Category> findByNameContaining(String name);
 //	Page<Category> findByNameContaining(String name,Pageable pageable);
-	
-	
 }

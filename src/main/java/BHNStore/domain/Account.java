@@ -3,12 +3,15 @@ package BHNStore.domain;
 
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -34,4 +37,7 @@ public class Account implements Serializable{
 	private String email;
 	@Column(columnDefinition = "bit not null")
 	private boolean isadmin;
+	
+	@OneToMany(mappedBy = "account",cascade =CascadeType.ALL)
+	private ArrayList<Order> orders;
 }
